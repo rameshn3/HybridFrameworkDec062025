@@ -42,8 +42,6 @@ public class WebDriverFactory {
         switch (browser){
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
-                //   chromeOptions.addArguments("--incognito");
-                //   chromeOptions.addArguments("disable-infobars");
                 chromeOptions.addArguments("--headless");
                 chromeOptions.addArguments("--disable-gpu"); // Optional, improves compatibility
                 chromeOptions.addArguments("--window-size=1920,1080");
@@ -53,7 +51,7 @@ public class WebDriverFactory {
             case "firefox":
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.setBinary("\"C:\\Program Files\\Mozilla Firefox\\firefox.exe\"");
-                //firefoxOptions.addArguments("--private");
+               
                 firefoxOptions.addArguments("disable-infobars");
                 firefoxOptions.setAcceptInsecureCerts(true);
                 firefoxOptions.addArguments("--headless=new");
@@ -69,8 +67,7 @@ public class WebDriverFactory {
             default:
                 throw new IllegalArgumentException("Unsupported browser:"+browser);
         }
-        //maximize the window
-        //  getDriver().manage().window().maximize();
+      
     }
     //create a getInstance method
     public static WebDriverFactory getInstance(String browser){
